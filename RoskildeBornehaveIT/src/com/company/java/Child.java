@@ -10,7 +10,7 @@ public class Child {
     Scanner scan = new Scanner(System.in);
     Database dbase = new Database;
 
-    public void createChild(){
+    public void createChild(){ // Ikke færdig
 
         try {
             do {
@@ -37,7 +37,7 @@ public class Child {
 
 
     }
-    public void editChild(){
+    public void editChild(){ // Ikke færdig
         System.out.println("Do you want to edit a child (y/n)");
         database.getChildData();
         System.out.println("Input the ID of the child you want to edit");
@@ -46,7 +46,7 @@ public class Child {
 
     }
 
-    public void deleteChild(){
+    public void deleteChild(){ // Ikke færdig
         System.out.println("Do you want to delete a child from list?(y/n): ");
         database.getChildData();
         System.out.println("Input social security number of the child you want to delete from the list");
