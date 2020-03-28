@@ -15,8 +15,9 @@ public class Child {
 
         try {
             do {
-                System.out.println("Do you want to add a new child to the kindergarten(y/n)");
-                database.getChildData();
+                //Det skal du ikke lave, fordi når man klader på metoden så har man allerede på forhånd bestemt sig at oprette et barn
+               // System.out.println("Do you want to add a new child to the kindergarten(y/n)");
+                // det her skal væredatabase.getChildData();
                 System.out.println("Write the child name: ");
                 name = scan.nextLine();
                 System.out.println("Input child social security number: ");
@@ -25,8 +26,11 @@ public class Child {
                 pickupTime = scan.nextDouble();
                 System.out.println("Assign teacher to the child. Input teacherID: ");
                 teacher_id = scan.nextInt();
+                //print liste a lærer, så man kan vælge en lærer
                 System.out.println("Assign parents to the child. Input parentID: ");
                 parent_id = scan.nextInt();
+                //Du skal først oprette parent, hvor du indsætter oplysninger i parent table, hvor du efterfølgende bruger
+                //
 
                 database.createChildData(child_cpr, name, pickupTime, teacher_id, parent_id);
 

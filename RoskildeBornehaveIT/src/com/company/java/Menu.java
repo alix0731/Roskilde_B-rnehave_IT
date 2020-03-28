@@ -16,9 +16,10 @@ public class Menu {
             System.out.println("|1.Register a child                                      |");
             System.out.println("|2.Edit child information                                |");
             System.out.println("|3.Delete child                                          |");
-            System.out.println("|4.Create new shift for schedule                         |");
-            System.out.println("|5.Edit schedule                                         |");
-            System.out.println("|6.Delete shift                                          |");
+            System.out.println("|4.See child list                                        |");
+            System.out.println("|5.Create new shift for schedule                         |");
+            System.out.println("|6.Edit schedule                                         |");
+            System.out.println("|7.Delete shift                                          |");
             System.out.println("----------------------------------------------------------");
             System.out.println("|0.Exit menu                                             |");
             System.out.println("----------------------------------------------------------");
@@ -47,17 +48,22 @@ public class Menu {
 
                 //Menu 4
                 if (seletedNum == 4) {
-                    Schedule schedule = new Schedule();
-                    schedule.createSchedule();
+
                 }
 
                 //Menu 5
                 if (seletedNum == 5) {
-
+                    Schedule schedule = new Schedule();
+                    schedule.createSchedule();
                 }
 
                 //Menu 6
                 if (seletedNum == 6) {
+
+                }
+
+                //Menu 7
+                if(seletedNum == 7){
 
                 }
 
