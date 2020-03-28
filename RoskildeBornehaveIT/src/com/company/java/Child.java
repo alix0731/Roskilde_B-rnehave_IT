@@ -25,9 +25,16 @@ public class Child {
                 System.out.println("Assign teacher to the child. Input teacherID: ");
                 teacher_id = scan.nextInt();
                 System.out.println("Assign parents to the child. Input parentID: ");
+                parent_id = scan.nextInt();
+
+                database.createScheduleData(name, child_cpr, pickupTime, teacher_id, parent_id);
 
                 System.out.println("Do you want to add more kids to the kindergarten (y/n)");
-            } while(true);
+                String moreKids = scan.next();
+                if(moreKids.equals("n") || moreKids.equals("N")){
+                    moreKids = false;
+                }
+            } while(moreKids);
         }
         catch (Exception e){
             System.out.println("Wrong input. Please try again");
@@ -47,11 +54,22 @@ public class Child {
     }
 
     public void deleteChild(){ // Ikke færdig
+        int child_cpr = Scanner.nextInt();
         System.out.println("Do you want to delete a child from list?(y/n): ");
         database.getChildData();
+
         System.out.println("Input social security number of the child you want to delete from the list");
-        child_cpr = scan.nextInt();
-        String sql = "Delete from employees where child_cpr "
+        Statement stmt = con.createStatement();
+
+        String query = "Delete from student where cpr= ' " + child_cpr " ' ";
+        int result = stmt.executeUpdate(query);
+        if (result == 0){
+            System.out.println("Record not found to delete");
+        } else{
+            System.out.println(result +"no. of record(s) found and deleted");
+        }
+
+
 
 
 
