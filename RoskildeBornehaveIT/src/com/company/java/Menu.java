@@ -30,6 +30,7 @@ public class Menu {
 
                 //Menu 1
                 if (seletedNum == 1) {
+                    createChild();
 
                 }
 
