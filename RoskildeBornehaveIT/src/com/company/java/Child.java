@@ -50,6 +50,9 @@ public class Child {
         System.out.println("Do you want to delete a child from list?(y/n): ");
         database.getChildData();
         System.out.println("Input social security number of the child you want to delete from the list");
+        child_cpr = scan.nextInt();
+        String sql = "Delete from employees where child_cpr "
+
 
 
 
