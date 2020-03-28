@@ -27,7 +27,7 @@ public class Child {
                 System.out.println("Assign parents to the child. Input parentID: ");
                 parent_id = scan.nextInt();
 
-                database.createScheduleData(name, child_cpr, pickupTime, teacher_id, parent_id);
+                database.createChildData(name, child_cpr, pickupTime, teacher_id, parent_id);
 
                 System.out.println("Do you want to add more kids to the kindergarten (y/n)");
                 String moreKids = scan.next();
