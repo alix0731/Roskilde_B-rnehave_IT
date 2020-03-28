@@ -9,7 +9,6 @@ public class Menu {
     public void managerMenu() {
 
 
-
         while (true) {
 
             System.out.println("\n|ROSKILDE BØRNEHAVE| ");
@@ -46,7 +45,8 @@ public class Menu {
 
                 //Menu 4
                 if (seletedNum == 4) {
-
+                    Schedule schedule = new Schedule();
+                    schedule.createSchedule();
                 }
 
                 //Menu 5
@@ -65,11 +65,10 @@ public class Menu {
 
                 }
 
-                if(seletedNum > 6){
+                if (seletedNum > 6) {
                     System.out.println("\nPlease type a optional number between 0-6.");
                 }
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("Please type a integer to continue...");
             }
 
