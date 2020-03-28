@@ -109,5 +109,25 @@ public class Database {
         }
 
     }
+        public void createChildData(int child_cpr, String name, double pickupTime, int teacher_id, int parent_id){
+        int child_cpr = 0;
+        String name;
+        double pickupTime = 0;
+        int teacher_id = 0;
+        int parent_id = 0;
+
+            //1.Get a conncection to database
+            Connection myCon = DriverManager.getConnection(url, user, password);
+
+            //2.Create statement
+            Statement myState = myCon.createStatement();
+
+            //3.Execute query for database child table
+            myState.executeUpdate("INSERT INTO child(child_cpr, name , pickupTime, teacher_id, parent_id) " +
+                    "VALUES(" + "'" + child_cpr + "'," + name + "," + pickupTime + "," + teacher_id + " ', " + parent_id ")");
+            //4.Execute query for child table
+            ResultSet rs = myState.executeQuery("SELECT * from child");
+
+        }
 
 }

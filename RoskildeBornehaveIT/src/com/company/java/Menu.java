@@ -30,7 +30,8 @@ public class Menu {
 
                 //Menu 1
                 if (seletedNum == 1) {
-                    createChild();
+                    Child child = new Child();
+                    child.createChild();
 
                 }
 
