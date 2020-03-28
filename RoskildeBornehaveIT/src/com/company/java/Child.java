@@ -6,6 +6,7 @@ public class Child {
     double pickupTime;
     int teacher_id;
     int parent_id;
+    boolean moreKids = true;
 
     Scanner scan = new Scanner(System.in);
     Database database = new Database();
@@ -27,11 +28,11 @@ public class Child {
                 System.out.println("Assign parents to the child. Input parentID: ");
                 parent_id = scan.nextInt();
 
-                database.createChildData(name, child_cpr, pickupTime, teacher_id, parent_id);
+                database.createChildData(child_cpr, name, pickupTime, teacher_id, parent_id);
 
                 System.out.println("Do you want to add more kids to the kindergarten (y/n)");
-                String moreKids = scan.next();
-                if(moreKids.equals("n") || moreKids.equals("N")){
+                String moreKidsInput = scan.next();
+                if(moreKidsInput.equals("n") || moreKidsInput.equals("N")){
                     moreKids = false;
                 }
             } while(moreKids);
@@ -53,15 +54,16 @@ public class Child {
 
     }
 
+    /*
     public void deleteChild(){ // Ikke færdig
-        int child_cpr = Scanner.nextInt();
+        int child_cpr = scan.nextInt();
         System.out.println("Do you want to delete a child from list?(y/n): ");
         database.getChildData();
 
         System.out.println("Input social security number of the child you want to delete from the list");
         Statement stmt = con.createStatement();
 
-        String query = "Delete from student where cpr= ' " + child_cpr " ' ";
+        String query = "Delete from student where cpr= ' " + child_cpr + " ' ";
         int result = stmt.executeUpdate(query);
         if (result == 0){
             System.out.println("Record not found to delete");
@@ -69,11 +71,11 @@ public class Child {
             System.out.println(result +"no. of record(s) found and deleted");
         }
 
-
+*/
 
 
 
 
     }
-}
+
 

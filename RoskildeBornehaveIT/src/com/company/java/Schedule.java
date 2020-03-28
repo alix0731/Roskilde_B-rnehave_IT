@@ -13,6 +13,7 @@ public class Schedule {
 
     Scanner scan = new Scanner(System.in);
     Database database = new Database();
+    Teacher teacher = new Teacher();
 
 
     public void createSchedule() {
@@ -24,6 +25,10 @@ public class Schedule {
             do {
 
                 System.out.println("Do you want to add a new teacher to the kindergarden(y/n)");
+                String registerTeacherInput = scan.next();
+                if(registerTeacherInput.equals("y") || registerTeacherInput.equals("Y")) {
+                    teacher.registerTeacher();
+                }
 
                 System.out.println("\n|List of teachers|");
                 database.getTeacherData();

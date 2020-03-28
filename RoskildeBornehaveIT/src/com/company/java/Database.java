@@ -64,6 +64,24 @@ public class Database {
 
     }
 
+    public void registerTeacher(String name, int phoneNumber, String email, int manager_id){
+        try {
+            //1.Get a conncection to database
+            Connection myCon = DriverManager.getConnection(url, user, password);
+
+            //2.Create statement
+            Statement myState = myCon.createStatement();
+
+            //3.Execute query for database schedule time table
+            myState.executeUpdate("INSERT INTO Teacher(name, phoneNumber, email, manager_id) " +
+                    "VALUES(" + "'" + name + "'," + phoneNumber + ", '" + email + "'," + manager_id + ")");
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void getTeacherData() {
         try {
             //1.Get a conncection to database
@@ -110,12 +128,13 @@ public class Database {
 
     }
         public void createChildData(int child_cpr, String name, double pickupTime, int teacher_id, int parent_id){
+       /*
         int child_cpr = 0;
         String name;
         double pickupTime = 0;
         int teacher_id = 0;
         int parent_id = 0;
-
+*/
 
             try {
                 //1.Get a conncection to database
