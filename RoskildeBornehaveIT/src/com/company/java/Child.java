@@ -8,7 +8,7 @@ public class Child {
     int parent_id;
 
     Scanner scan = new Scanner(System.in);
-    Database dbase = new Database;
+    Database database = new Database();
 
     public void createChild(){ // Ikke færdig
 
