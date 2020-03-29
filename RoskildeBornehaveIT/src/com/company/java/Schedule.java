@@ -26,7 +26,7 @@ public class Schedule {
 
                 System.out.println("Do you want to add a new teacher to the kindergarden(y/n)");
                 String registerTeacherInput = scan.next();
-                if(registerTeacherInput.equals("y") || registerTeacherInput.equals("Y")) {
+                if (registerTeacherInput.equals("y") || registerTeacherInput.equals("Y")) {
                     teacher.registerTeacher();
                 }
 
@@ -63,6 +63,31 @@ public class Schedule {
             System.out.println("Wrong input. Please try again");
         }
 
+    }
+
+    public void editSchedule(){
+
+        database.getScheduleData();
+
+        System.out.print("\nType the id number you want to edit?: ");
+        int inputId = scan.nextInt();
+
+        System.out.print("Which column do you want to edit?: ");
+        String columnName = scan.next();
+
+        System.out.print("Type the new data to insert?: ");
+        String newData = scan.next();
+
+        database.updateScheduleString(inputId, columnName, newData);
+
+    }
+
+    public void deleteSchedule(){
+        
+    }
+
+    public void getSchedule() {
+        database.getScheduleData();
     }
 
 

@@ -54,15 +54,57 @@ public class Database {
 
     public void getScheduleData() {
 
+
+        Connection scheData = null;
+        try {
+            scheData = DriverManager.getConnection(url, user, password);
+
+            Statement scheState = scheData.createStatement();
+//henter schedule tabel
+            ResultSet scheResult = scheState.executeQuery("SELECT * FROM Schedule");
+
+
+            System.out.println("|Shift_id|teacher_id|time_id|");
+            while (scheResult.next()){
+
+                System.out.println("|   " + scheResult.getInt(1) + "   | " + scheResult.getInt(2) + "       | " + scheResult.getInt(3) + "      | ");
+            }
+
+            ResultSet timeResult = scheState.executeQuery("SELECT * FROM schedule_time");
+
+
+
+            System.out.println("\n|time_id|shift_id|date|start|end|duration|");
+            while (timeResult.next()){
+                System.out.println("| " + timeResult.getInt(1) + " | " + timeResult.getInt(2) + " | " + timeResult.getString(3) + " | " + timeResult.getDouble(4) + " | " + timeResult.getDouble(5) + " | " + timeResult.getDouble(6) + " |");
+            }
+
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void deleteScheduleData() {
 
     }
 
-    public void updateScheduleData() {
+    public void updateScheduleString(int time_id, String whatToUpdate, String newInput) {
 
+        try {
+            Connection myConnectData = DriverManager.getConnection(url, user, password);
+
+            Statement myStatement = myConnectData.createStatement();
+
+            myStatement.executeUpdate("update schedule_time set " + whatToUpdate + " = '" + newInput + "' where time_id = " + time_id);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+
 
     public void registerTeacher(String name, int phoneNumber, String email, int manager_id){
         try {
@@ -156,7 +198,7 @@ public class Database {
 
 
         }
-        public void createParentData(){
+        public void createParentData(String dadName, String momName, String adress, int phoneNumber, String email){
             try {
                 //1.Get a conncection to database
                 Connection myCon = DriverManager.getConnection(url, user, password);
@@ -166,7 +208,7 @@ public class Database {
 
                 //3.Execute query for database child table
                 myState.executeUpdate("INSERT INTO parent(DadName, MomName , adress, phoneNumber, email) " +
-                        "VALUES(" + dadName + ",'" + momName + "'," + adress + "," + phoneNumber + " ', " + email + ")");
+                        "VALUES('" + dadName + "','" + momName + "', '" + adress + "' ," + phoneNumber + ", '" + email + "')");
                 //4.Execute query for child table
                 ResultSet rs = myState.executeQuery("SELECT * from parent");
 
@@ -179,4 +221,4 @@ public class Database {
         }
         }
 
-}
+

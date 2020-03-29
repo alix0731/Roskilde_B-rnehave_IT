@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Menu {
 
     Scanner scan = new Scanner(System.in);
+    Schedule schedule = new Schedule();
+
 
     public void managerMenu() {
 
@@ -20,6 +22,7 @@ public class Menu {
             System.out.println("|5.Create new shift for schedule                         |");
             System.out.println("|6.Edit schedule                                         |");
             System.out.println("|7.Delete shift                                          |");
+            System.out.println("|8.See schedule                                          |");
             System.out.println("----------------------------------------------------------");
             System.out.println("|0.Exit menu                                             |");
             System.out.println("----------------------------------------------------------");
@@ -53,27 +56,31 @@ public class Menu {
 
                 //Menu 5
                 if (seletedNum == 5) {
-                    Schedule schedule = new Schedule();
                     schedule.createSchedule();
                 }
 
                 //Menu 6
                 if (seletedNum == 6) {
-
+                    schedule.editSchedule();
                 }
 
                 //Menu 7
-                if(seletedNum == 7){
+                if (seletedNum == 7) {
 
                 }
 
+                //menu 8
+                if (seletedNum == 8) {
+                    schedule.getSchedule();
+
+                }
                 //Menu 0
                 if (seletedNum == 0) {
                     break;
 
                 }
 
-                if (seletedNum > 6) {
+                if (seletedNum > 8) {
                     System.out.println("\nPlease type a optional number between 0-6.");
                 }
             } catch (Exception e) {
