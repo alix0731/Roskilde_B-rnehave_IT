@@ -2,7 +2,6 @@ package com.company.java;
 import java.util.scanner.*;
 
 public class Parent {
-<<<<<<< HEAD
     String dadName;
     String momName;
     String adress;
