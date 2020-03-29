@@ -2,6 +2,7 @@ package com.company.java;
 import java.util.scanner.*;
 
 public class Parent {
+<<<<<<< HEAD
     String dadName;
     String momName;
     String adress;
@@ -9,7 +10,7 @@ public class Parent {
     String email;
 
 
-Scanner scan = new Scanner();
+Scanner scan = new Scanner(System.in);
 Database database = new Database();
 
 public void parentInfo(){
@@ -27,6 +28,7 @@ public void parentInfo(){
     database.createChildData(dadName, momName, adress, phoneNumber, email);
 
 }
+
 
 
 }

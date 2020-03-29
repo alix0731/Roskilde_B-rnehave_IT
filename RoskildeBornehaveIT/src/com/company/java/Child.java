@@ -29,7 +29,6 @@ public class Child {
                 System.out.println("Assign parents to the child. Input parentID: ");
                 parent_id = scan.nextInt();
                 //Du skal først oprette parent, hvor du indsætter oplysninger i parent table, hvor du efterfølgende bruger
-                //
 
                 database.createChildData(child_cpr, name, pickupTime, teacher_id, parent_id);
 
