@@ -156,5 +156,27 @@ public class Database {
 
 
         }
+        public void createParentData(){
+            try {
+                //1.Get a conncection to database
+                Connection myCon = DriverManager.getConnection(url, user, password);
+
+                //2.Create statement
+                Statement myState = myCon.createStatement();
+
+                //3.Execute query for database child table
+                myState.executeUpdate("INSERT INTO parent(DadName, MomName , adress, phoneNumber, email) " +
+                        "VALUES(" + dadName + ",'" + momName + "'," + adress + "," + phoneNumber + " ', " + email + ")");
+                //4.Execute query for child table
+                ResultSet rs = myState.executeQuery("SELECT * from parent");
+
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+        }
 
 }
